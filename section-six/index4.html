@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- react library -->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- rect dom library -->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!-- babel library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>Styling Components</title>
+</head>
+<body>
+    <div id="app">
+        React not rendered yet.
+    </div>
+
+    <script type="text/babel">
+    
+        // create one component to recreate the previous components.
+
+        class ColorShower extends React.Component {
+            render() {
+                var colors = this.props.colors.map(function (color) {
+                    var colorStyle = {
+                        height: 50,
+                        width: 150,
+                        backgroundColor: color.color
+                    }
+                    return (
+                        <h1 style={colorStyle} key={color.id}>{color.name}</h1>
+                    );
+                    
+                });
+                return  <div>
+                            {colors}
+                        </div>
+            }
+        }
+
+        var colors = [{id: 1, color:"red", name: "red"},{id: 2, color:"orange", name: "orange"},
+                        {id: 3, color:"yellow", name: "yellow"},{id: 4, color:"green", name: "green"},
+                        {id: 5, color:"blue", name: "blue"},{id: 6, color:"indigo", name: "indigo"},
+                        {id: 7, color:"violet", name: "violet"},];
+
+        ReactDOM.render(
+            <div>
+                <ColorShower colors = {colors} />
+           </div>,
+            document.getElementById("app")
+        );
+
+   </script>
+</body>
+</html>

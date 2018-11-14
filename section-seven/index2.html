@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <!-- react library -->
+     <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+     <!-- rect dom library -->
+     <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+     <!-- babel library -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>FriendLy</title>
+</head>
+<body>
+    <div id="app">React has not rendered yet</div>
+
+    <script type="text/babel">
+
+        class Warning extends React.Component {
+
+            handleButtonTouch() {
+                alert("Too Hot!");
+            }
+
+            handleButtonDrink() {
+                alert("Brain Freeze!")
+            }
+
+            render() {
+                return (
+                    <div>
+                        <h1>Life Warnings</h1>
+                        <button onMouseOver={this.handleButtonTouch}>Touch Stove</button>
+                        <button onMouseOver={this.handleButtonDrink}>Drink Slurpee Really Fast</button>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <Warning/>,
+            document.getElementById("app")
+        );
+
+   </script>
+</body>
+</html>
